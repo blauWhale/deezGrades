@@ -25,7 +25,14 @@ public class Grade {
 
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "grade_student_id")
+    @JoinColumn(name = "student_id")
     @JsonIgnore
     private Student student;
+
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "course_id")
+    @JsonIgnore
+    private Course course;
 }

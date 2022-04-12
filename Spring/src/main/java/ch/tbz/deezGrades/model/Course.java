@@ -22,4 +22,7 @@ public class Course {
     @NotBlank
     private String name;
 
+    @NotNull
+    private boolean bms;
+
 }
