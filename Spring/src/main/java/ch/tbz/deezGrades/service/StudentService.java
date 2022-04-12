@@ -20,6 +20,7 @@ public class StudentService {
 
     @PostMapping(value = "/Student")
     @Transactional
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<Student> createStudent(@RequestBody @Valid Student request) {
         return persistStudent(request);
     }
