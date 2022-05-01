@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -48,8 +49,17 @@ public class StudentService {
 
     @GetMapping(value = "/Student/{id}")
     @Transactional
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<Student> getStudentById(@PathVariable int id) {
         Optional<Student> Student = studentRepository.findById(id);
         return Student.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping(value = "/Student")
+    @Transactional
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<List<Student>> getAllStudent() {
+        Optional<List<Student>> student = Optional.of(studentRepository.findAll());
+        return student.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 }

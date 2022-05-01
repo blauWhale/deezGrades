@@ -1,6 +1,7 @@
 package ch.tbz.deezGrades.service;
 
 import ch.tbz.deezGrades.model.Course;
+import ch.tbz.deezGrades.model.Student;
 import ch.tbz.deezGrades.persistence.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -51,4 +53,13 @@ public class CourseService {
         Optional<Course> Course = courseRepository.findById(id);
         return Course.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+    @GetMapping(value = "/Course")
+    @Transactional
+    @CrossOrigin(origins = "http://localhost:3000")
+    public ResponseEntity<List<Course>> getAllCourses() {
+        Optional<List<Course>> course = Optional.of(courseRepository.findAll());
+        return course.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
 }

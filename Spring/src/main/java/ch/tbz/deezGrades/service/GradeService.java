@@ -1,13 +1,16 @@
 package ch.tbz.deezGrades.service;
 
 import ch.tbz.deezGrades.model.Grade;
+import ch.tbz.deezGrades.model.Student;
 import ch.tbz.deezGrades.persistence.GradeRepository;
+import ch.tbz.deezGrades.persistence.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -16,6 +19,9 @@ public class GradeService {
 
     @Autowired
     GradeRepository gradeRepository;
+
+    @Autowired
+    StudentRepository studentRepository;
 
 
     @PostMapping(value = "/Grade")
@@ -45,10 +51,4 @@ public class GradeService {
     }
 
 
-    @GetMapping(value = "/Grade/{id}")
-    @Transactional
-    public ResponseEntity<Grade> getGradeById(@PathVariable int id) {
-        Optional<Grade> Grade = gradeRepository.findById(id);
-        return Grade.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
 }

@@ -36,22 +36,22 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Grades`
+-- Table `mydb`.`Grade`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Grades` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Grade` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `grade` FLOAT NULL,
   `Student_id` INT NOT NULL,
   `Course_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_Grades_Student_idx` (`Student_id` ASC) VISIBLE,
-  INDEX `fk_Grades_Course1_idx` (`Course_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Grades_Student`
+  INDEX `fk_Grade_Student_idx` (`Student_id` ASC) VISIBLE,
+  INDEX `fk_Grade_Course1_idx` (`Course_id` ASC) VISIBLE,
+  CONSTRAINT `fk_Grade_Student`
     FOREIGN KEY (`Student_id`)
     REFERENCES `mydb`.`Student` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Grades_Course1`
+  CONSTRAINT `fk_Grade_Course1`
     FOREIGN KEY (`Course_id`)
     REFERENCES `mydb`.`Course` (`id`)
     ON DELETE NO ACTION
