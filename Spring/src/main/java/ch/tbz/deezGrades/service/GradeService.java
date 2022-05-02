@@ -26,6 +26,7 @@ public class GradeService {
 
     @PostMapping(value = "/Grade")
     @Transactional
+    @CrossOrigin(origins = "http://localhost:3000/")
     public ResponseEntity<Grade> createGrade(@RequestBody @Valid Grade request) {
         return persistGrade(request);
     }

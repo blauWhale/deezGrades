@@ -1,4 +1,4 @@
-import React, { useRef,useState,useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Swal from 'sweetalert2'
 
 export default function New() {
@@ -9,14 +9,24 @@ export default function New() {
     const [student, setStudent] = useState([]);
     const [courses, setCourses] = useState([]);
 
+    const [selectedStudent, setSelectedStudent] = useState([]);
+    const [selectedCourse, setSelectedCourse] = useState([]);
+
+
     const handleSubmit = async () => {
+        console.log( {
+            "grade": nameRef.current.value,
+            "student": studentRef.current.value,
+            "course": courseRef.current.value
+        })
         await fetch('http://localhost:8080/api/Grade', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(
-                { 
-                    "student": studentRef.current.value ,
-                    
+                {
+                    "grade": nameRef.current.value,
+                    "student": studentRef.current.value,
+                    "course":  selectedCourse
                 })
         })
             .then(response => response.json())
@@ -26,7 +36,6 @@ export default function New() {
                 'success'
             ));
     }
-
     const fetchStudent = async () => {
         await fetch('http://localhost:8080/api/Student')
             .then(response => response.json())
@@ -43,6 +52,16 @@ export default function New() {
         fetchCourses()
     }, [])
 
+    
+  const handleStudentChange = (e) => {
+    setSelectedStudent(e.target.value);
+  }
+
+  const handleCourseChange = (e) => {
+    console.log(e.target.value)
+    setSelectedCourse(e.target.value);
+  }
+
     return (
 
         <div className="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
@@ -51,16 +70,29 @@ export default function New() {
             </a>
             <form>
                 <label for="course" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select a course</label>
-                <select id="course" ref={courseRef} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    {courses.map(course => {
-                        return (<option value={course.id}>{course.name}</option>)
+                <select id="course" onChange={handleCourseChange} ref={courseRef} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    {courses.map((course) => {
+                        return (<option value={course} >{course.name}</option>)
                     })}
                 </select>
 
+
+
+
+
+
+
+
+
+
+
                 <label for="student" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select a student</label>
-                <select id="student"  ref={studentRef} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <select id="student" ref={studentRef} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     {student.map(student => {
-                        return (<option value={student.id}>{student.name}</option>)
+                        return (<option value={{
+                            "id": student.id,
+                            "name": student.name,
+                        }}>{student.name}</option>)
                     })}
                 </select>
 

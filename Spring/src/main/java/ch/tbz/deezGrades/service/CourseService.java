@@ -22,6 +22,7 @@ public class CourseService {
 
     @PostMapping(value = "/Course")
     @Transactional
+    @CrossOrigin(origins = "http://localhost:3000/")
     public ResponseEntity<Course> createCourse(@RequestBody @Valid Course request) {
         return persistCourse(request);
     }
