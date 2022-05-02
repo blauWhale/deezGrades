@@ -49,13 +49,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Grade` (
   CONSTRAINT `fk_Grade_Student`
     FOREIGN KEY (`Student_id`)
     REFERENCES `mydb`.`Student` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Grade_Course1`
     FOREIGN KEY (`Course_id`)
     REFERENCES `mydb`.`Course` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 

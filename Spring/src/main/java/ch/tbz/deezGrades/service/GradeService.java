@@ -1,15 +1,16 @@
 package ch.tbz.deezGrades.service;
 
+import ch.tbz.deezGrades.model.Course;
 import ch.tbz.deezGrades.model.Grade;
-import ch.tbz.deezGrades.model.Student;
+import ch.tbz.deezGrades.persistence.CourseRepository;
 import ch.tbz.deezGrades.persistence.GradeRepository;
-import ch.tbz.deezGrades.persistence.StudentRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +22,8 @@ public class GradeService {
     GradeRepository gradeRepository;
 
     @Autowired
-    StudentRepository studentRepository;
+    CourseRepository courseRepository;
+
 
 
     @PostMapping(value = "/Grade")
@@ -51,5 +53,19 @@ public class GradeService {
         gradeRepository.deleteGradeById(id);
     }
 
+
+
+    @GetMapping(value = "/Grade/{student_id}")
+    @Transactional
+    @CrossOrigin(origins = "http://localhost:3000/")
+    public void getAllGradeByStudent(@PathVariable int student_id) {
+        Optional<List<Course>> courses = Optional.of(courseRepository.findAll());
+        HashMap<Course, List<Grade>> response = new HashMap<>();
+        for(Course course: courses.get()){
+            Optional<List<Grade>> gradeOfCourse = Optional.of(gradeRepository.findAllGradeByCourseAndStudent(student_id , course.getId()));
+            response.put(course,gradeOfCourse.get());
+        }
+
+    }
 
 }

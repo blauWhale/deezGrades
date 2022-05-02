@@ -158,6 +158,11 @@
             <artifactId>springdoc-openapi-data-rest</artifactId>
             <version>1.6.4</version>
         </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20220320</version>
+        </dependency>
     </dependencies>
 
     <build>

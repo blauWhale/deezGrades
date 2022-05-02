@@ -5,6 +5,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 function MyApp({ Component, pageProps }) {
+
+
   return <>
     <div className={styles.container}>
       <Head>
@@ -16,7 +18,14 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <main>
-        <Component {...pageProps} />
+        <ul>
+          <li><a href="/student/all">All Student</a></li>
+          <li><a href="/student/new">Create Student</a></li>
+          <li><a href="/course/all">All Course</a></li>
+          <li><a href="/course/new">Create Course</a></li>
+          <li><a href="/grade/new">Add Grade</a></li>
+        </ul>
+        <Component {...pageProps}/>
       </main>
     </div>
 

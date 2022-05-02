@@ -3,41 +3,40 @@ import { useRouter } from 'next/router'
 
 export default function New() {
 
-    const [student, setStudent] = useState([]);
+    const [course, setCourse] = useState([]);
     const router = useRouter()
 
-    const fetchStudent = async () => {
-        await fetch('http://localhost:8080/api/Student')
+    const fetchCourse = async () => {
+        await fetch('http://localhost:8080/api/Course')
             .then(response => response.json())
-            .then(data => setStudent(data))
+            .then(data => setCourse(data))
     }
     useEffect(() => {
-        fetchStudent()
+        fetchCourse()
     }, [])
 
-    const showStudent=async(id)=>{
-        router.push("/student/"+id)
-    }
 
-    const deleteStudent = async (id) => {
-        await fetch('http://localhost:8080/api/Student/' + id, {
+    const deleteCourse = async (id) => {
+        await fetch('http://localhost:8080/api/Course/' + id, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
         })
             .then(() => router.reload(window.location.pathname));
     }
-
     return (
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-auto" style={{marginTop:"5rem", width:"30%"}}>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg w-1/2 mx-auto" style={{marginTop:"5rem"}}>
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Student Name
+                            Course Name
                         </th>
                         <th scope="col" class="px-6 py-3">
-                           
+                            BMS
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            
                         </th>
                     </tr>
                 </thead>
@@ -45,15 +44,19 @@ export default function New() {
 
 
 
-                    {student.map(student => {
+                    {course.map(course => {
                         return (
-                            <tr key={student.id} class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600" onClick={()=>{showStudent(student.id)}}>
+                            <tr key={course.id} class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <td class="px-6 py-4">
-                                    {student.name}
+                                    {course.name}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {course.bms ? "No" : "Yes"}
                                 </td>
 
+
                                 <td class="px-6 py-4 text-right">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={() => { deleteStudent(student.id) }}>Delete</a>
+                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onClick={() => { deleteCourse(course.id) }}>Delete</a>
                                 </td>
                             </tr>
                         )
