@@ -8,8 +8,8 @@ import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
-@Entity(name = "grades")
-@Table(name = "grades")
+@Entity(name = "grade")
+@Table(name = "grade")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
