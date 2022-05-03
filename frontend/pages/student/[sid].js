@@ -41,7 +41,7 @@ export default function Student() {
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                         {data.course.name}
                                     </th>
-                                   {data.grade.map((grade)=>{
+                                   {data && data.grade.map((grade)=>{
 
                                         return(<td class="px-6 py-4">
                                         {grade.grade}
