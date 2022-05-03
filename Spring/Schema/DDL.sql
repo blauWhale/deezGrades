@@ -44,9 +44,9 @@ CREATE TABLE IF NOT EXISTS `deezGradesDB`.`Grades` (
   `Student_id` INT NOT NULL,
   `Course_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_Grades_Student_idx` (`Student_id` ASC) VISIBLE,
-  INDEX `fk_Grades_Course1_idx` (`Course_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Grades_Student`
+  INDEX `fk_Grade_Student_idx` (`Student_id` ASC) VISIBLE,
+  INDEX `fk_Grade_Course1_idx` (`Course_id` ASC) VISIBLE,
+  CONSTRAINT `fk_Grade_Student`
     FOREIGN KEY (`Student_id`)
     REFERENCES `deezGradesDB`.`Student` (`id`)
     ON DELETE NO ACTION
