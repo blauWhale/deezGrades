@@ -19,5 +19,10 @@ public interface GradeRepository extends JpaRepository<Grade, Integer> {
             nativeQuery = true)
     List<Grade> findAllGradeByCourseAndStudent(@Param("sid") int sid, @Param("cid") int cid);
 
+    @Query(
+            value = "SELECT * FROM grade u WHERE u.student_id = :sid",
+            nativeQuery = true)
+    List<Grade> findAllGradeStudent(@Param("sid") int sid);
+
     void deleteGradeById(int id);
 }
