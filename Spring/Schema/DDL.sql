@@ -7,7 +7,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema deezGradesDB
 -- -----------------------------------------------------
-
+DROP SCHEMA IF EXISTS `deezGradesDB`;
 -- -----------------------------------------------------
 -- Schema deezGradesDB
 -- -----------------------------------------------------
@@ -30,7 +30,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `deezGradesDB`.`Course` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
-  `bms` TINYINT NULL,
+  `bms` BOOLEAN NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -49,13 +49,13 @@ CREATE TABLE IF NOT EXISTS `deezGradesDB`.`Grades` (
   CONSTRAINT `fk_Grade_Student`
     FOREIGN KEY (`Student_id`)
     REFERENCES `deezGradesDB`.`Student` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Grades_Course1`
     FOREIGN KEY (`Course_id`)
     REFERENCES `deezGradesDB`.`Course` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
