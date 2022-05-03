@@ -25,4 +25,8 @@ public class Course {
     @NotNull
     private boolean bms;
 
+    public boolean getBms(){
+        return bms;
+    }
+
 }

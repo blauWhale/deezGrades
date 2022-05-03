@@ -5,10 +5,13 @@ import ch.tbz.deezGrades.model.Grade;
 import ch.tbz.deezGrades.persistence.CourseRepository;
 import ch.tbz.deezGrades.persistence.GradeRepository;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +26,6 @@ public class GradeService {
 
     @Autowired
     CourseRepository courseRepository;
-
 
 
     @PostMapping(value = "/Grade")
@@ -54,18 +56,24 @@ public class GradeService {
     }
 
 
-
     @GetMapping(value = "/Grade/{student_id}")
     @Transactional
     @CrossOrigin(origins = "http://localhost:3000/")
-    public void getAllGradeByStudent(@PathVariable int student_id) {
+    public ResponseEntity<List<Object>> getAllGradeByStudent(@PathVariable int student_id) {
         Optional<List<Course>> courses = Optional.of(courseRepository.findAll());
-        HashMap<Course, List<Grade>> response = new HashMap<>();
-        for(Course course: courses.get()){
-            Optional<List<Grade>> gradeOfCourse = Optional.of(gradeRepository.findAllGradeByCourseAndStudent(student_id , course.getId()));
-            response.put(course,gradeOfCourse.get());
+        JSONArray response = new JSONArray();
+        for (Course course : courses.get()) {
+            JSONObject gradeOfCourseObj = new JSONObject();
+            JSONObject convertedCourse = new JSONObject();
+            convertedCourse.put("id",course.getId());
+            convertedCourse.put("name",course.getName());
+            convertedCourse.put("bms",course.getBms());
+            Optional<List<Grade>> gradeOfCourse = Optional.of(gradeRepository.findAllGradeByCourseAndStudent(student_id, course.getId()));
+            gradeOfCourseObj.put("course", convertedCourse);
+            gradeOfCourseObj.put("grade", gradeOfCourse.get());
+            response.put(gradeOfCourseObj);
         }
-
+        return ResponseEntity.ok(response.toList());
     }
 
 }
