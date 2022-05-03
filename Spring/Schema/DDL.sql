@@ -38,7 +38,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `deezGradesDB`.`Grades`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `deezGradesDB`.`Grades` (
+CREATE TABLE IF NOT EXISTS `deezGradesDB`.`Grade` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `grade` FLOAT NULL,
   `Student_id` INT NOT NULL,
