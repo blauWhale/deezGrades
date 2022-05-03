@@ -4,13 +4,12 @@ import lombok.*;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
-@Entity(name = "grade")
-@Table(name = "grade")
+@Entity(name = "grades")
+@Table(name = "grades")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
