@@ -104,6 +104,8 @@ Und einen Pages Ordner, wo die wichtigsten Stammteile sind, wie Model oder API.
 
 ### Raphael
 
+Das Projekt war sehr spannend und war ideal in Verbindung mit dem Springboot Projekt das wir in unserer Lehrfirma Generali angehen. Die Umsetzung der Datenbank gestalltete und normalisierte ich mit der SQL-Workbench. In der Springboot Applikation bindete ich Repositories ein und setzte Hibernate ein um nicht SQL Statements zu schreiben. Der Lerneffekt speziel mit Hibernate JPA war gross und es macht mir grossen Spass. Die Zusammenarbeit mit Olive und Sam war sehr gut und gut aufgeteilt. Jede konnte seine Stärken einsetzten
+
 ### Samuel
 
 Während der Projektarbeit war ich leider zwei-mal krank, deshalb konnte ich nicht so mithelfen, wie ich von Anfang an wollte.
