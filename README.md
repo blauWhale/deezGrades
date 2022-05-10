@@ -26,15 +26,15 @@ Da wir alle drei gute Kenntnisse haben in unseren Feldern, sollen keine grossen 
 
 #### Use Case
 
-![Use Case](doc/Use Case.png)
+![Use Case](doc/use_case.png)
 
 #### Klassendiagramm
 
-![Klassendiagramm](doc/Class Diagram.png)
+![Klassendiagramm](doc/classes.png)
 
 #### Aktivitätsdiagramm
 
-![Aktivitätsdiagramm](doc/Activity Diagram.png)
+![Aktivitätsdiagramm](doc/activity.png)
 
 #### Architektur Design
 
@@ -112,3 +112,7 @@ Während der Projektarbeit war ich leider zwei-mal krank, deshalb konnte ich nic
 Aufgrund meiner Abwesenheit musste mein Team meine Aufgabe(Spring Boot Implementation) für mich erledigen. Somit konnten wir doch
 glücklicherweise unsere Arbeit rechtzeitig erledigen. Am Schluss konnte ich doch ein wenig Last von den Schultern meiner Teamkollegen
 abheben, indem ich die Dokumentation und die meisten Diagramme vervollständigt habe.
+
+### Oliver
+
+Mit dem Endergebnis sind wir sehr zufrieden. Das was entstanden ist, entspricht unsere Vorstellung von unserem Produkt und ist sogar besser rausgekommen als wir uns vorstellten. Es gibt in diesem Projekt fast nichts Schlechtes zu erwähnen. Wir waren immer gut unterwegs und waren uns einig. Daher sparten wir viel Zeit beim Entscheidungen treffen. Wir haben uns ständig ausgetauscht, teilweise auch im Teams Call miteinander programmiert und uns gegenseitig ausgeholfen, wenn wir nicht weiterwussten. Wir sind im Ganzen sehr zufrieden und haben nichts Spezifisches das wir nächstes Mal anders machen würden.
