@@ -26,15 +26,15 @@ Da wir alle drei gute Kenntnisse haben in unseren Feldern, sollen keine grossen 
 
 #### Use Case
 
-![Use Case](doc/Use Case.png)
+![Use Case](doc/use_case.png)
 
 #### Klassendiagramm
 
-![Klassendiagramm](doc/Class Diagram.png)
+![Klassendiagramm](doc/classes.png)
 
 #### Aktivitätsdiagramm
 
-![Aktivitätsdiagramm](doc/Activity Diagram.png)
+![Aktivitätsdiagramm](doc/activity.png)
 
 #### Architektur Design
 
