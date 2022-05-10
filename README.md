@@ -38,7 +38,7 @@ Da wir alle drei gute Kenntnisse haben in unseren Feldern, sollen keine grossen 
 
 #### Architektur Design
 
-![Architektur Design](doc/Architecture Diagram.png)
+![Architektur Design](doc/architecture.png)
 
 ### Technologie
 
@@ -58,10 +58,6 @@ Da wir alle drei gute Kenntnisse haben in unseren Feldern, sollen keine grossen 
 | Grade Eingeben              |
 | Ungültige Grade Eingeben    |
 | Course Grade Table Anzeigen |
-
-### GUI Design
-
-
 
 ## Implementierung
 
@@ -99,8 +95,6 @@ Und einen Pages Ordner, wo die wichtigsten Stammteile sind, wie Model oder API.
 
 
 ## Reflektionen
-
-### Oliver
 
 ### Raphael
 
