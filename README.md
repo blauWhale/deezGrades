@@ -62,8 +62,8 @@ Da wir alle drei gute Kenntnisse haben in unseren Feldern, sollen keine grossen 
 ## Implementierung
 
 ### Schwierigkeiten
-
-
+ 
+Die enormste Herausforderung war Spring. Das grösste Problem dabei war, dass die Kommunikation zwischen der API und der Datenbank mehrmals angepasst werden musste.
 
 ### Problemlösungen
 
