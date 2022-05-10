@@ -104,9 +104,15 @@ Und einen Pages Ordner, wo die wichtigsten Stammteile sind, wie Model oder API.
 
 ### Raphael
 
+Das Projekt war sehr spannend und war ideal in Verbindung mit dem Springboot Projekt das wir in unserer Lehrfirma Generali angehen. Die Umsetzung der Datenbank gestalltete und normalisierte ich mit der SQL-Workbench. In der Springboot Applikation bindete ich Repositories ein und setzte Hibernate ein um nicht SQL Statements zu schreiben. Der Lerneffekt speziel mit Hibernate JPA war gross und es macht mir grossen Spass. Die Zusammenarbeit mit Olive und Sam war sehr gut und gut aufgeteilt. Jede konnte seine Stärken einsetzten
+
 ### Samuel
 
 Während der Projektarbeit war ich leider zwei-mal krank, deshalb konnte ich nicht so mithelfen, wie ich von Anfang an wollte.
 Aufgrund meiner Abwesenheit musste mein Team meine Aufgabe(Spring Boot Implementation) für mich erledigen. Somit konnten wir doch
 glücklicherweise unsere Arbeit rechtzeitig erledigen. Am Schluss konnte ich doch ein wenig Last von den Schultern meiner Teamkollegen
 abheben, indem ich die Dokumentation und die meisten Diagramme vervollständigt habe.
+
+### Oliver
+
+Mit dem Endergebnis sind wir sehr zufrieden. Das was entstanden ist, entspricht unsere Vorstellung von unserem Produkt und ist sogar besser rausgekommen als wir uns vorstellten. Es gibt in diesem Projekt fast nichts Schlechtes zu erwähnen. Wir waren immer gut unterwegs und waren uns einig. Daher sparten wir viel Zeit beim Entscheidungen treffen. Wir haben uns ständig ausgetauscht, teilweise auch im Teams Call miteinander programmiert und uns gegenseitig ausgeholfen, wenn wir nicht weiterwussten. Wir sind im Ganzen sehr zufrieden und haben nichts Spezifisches das wir nächstes Mal anders machen würden.
